@@ -1,0 +1,107 @@
+.wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+a {
+    color: black;
+}
+
+#header {
+    height: 100px;
+    width: 100%;
+}
+#logo {
+    margin-top: 3%;
+    margin-left: 3%;
+    float: left;
+}
+
+#logo img {
+    height: 50px;
+}
+
+#nav {
+    float: right;
+    margin-top: 3%;
+}
+
+#nav>div {
+    float: left;
+    margin-right: 50px;
+}
+
+#body {
+    background-image: url("../images/background.jpg");
+    width: 100%;
+    height: 600px;
+}
+
+#floating_modal {
+    margin: 0 auto;
+    padding-top: 12%;
+    width: 320px;
+}
+
+#floating_modal>div {
+    background: white;
+    border: 3px solid rgb(153,153,153);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.btn-large {
+    width: 100%;
+    font-size: 34px;
+    border-radius: 3px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#floating_modal input {
+    font-size: 34px;
+    height: 50px;
+    width: 100%;
+}
+
+#floating_modal h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.how-to-text {
+    text-align: justify;
+    width: 335px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.how-to-text-alt {
+    width: 320px;
+    margin-top:10px;
+}
+
+#how_it_works {
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+#how_it_works>div {
+    float: left;
+}
+
+#phone_how_to {
+    float: right;
+}
+
+#footer {
+    margin-top: 500px;
+    margin-left: 26%;
+}
+
+.img-center {
+    margin-left: 20%;
+    margin-bottom: 3%;
+}
+
+

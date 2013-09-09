@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <link rel="stylesheet" media="screen" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" media="screen" href="{% static 'css/notifications.css' %}" />
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+  </head>
+  <body>
+    <!-- The following is going to contain all the content!! yipee!! Elephants!! -->
+    <div class="wrapper">
+      <div id="header">
+        <div id="logo">
+          <img src="{% static 'images/logo.gif' %}" />
+        </div>
+        <div id="nav">
+          <div><h3><a href="#how_it_works">How it works</a></h3></div>
+          <div><h3><a href="#footer">About</a></h3></div>
+        </div>
+      </div>
+      <div id="body">
+        <div id="floating_modal">
+          <div>
+            <h3>Join to get notifications</h3>
+            <form action="{% url "notifications-user-create" %}" method="POST">
+                {% csrf_token %}
+                <h4>Enter your phone number</h4>
+                {% for field in form %}
+                  <div> {{ field }} </div>
+                  <div id="{{ field.auto_id }}_errors">{{ field.errors }}</div>
+                {% endfor %}
+                <button type="submit" id="save_user" value="Submit" class="btn btn-warning btn-large">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="how_it_works">
+        <a name="how_it_works"></a>
+        <div>
+          <img src="{% static 'images/email.png' %}" style="margin-left: 40px; height: 160px;"/>
+          <div class="how-to-text lead">
+            You currently get emails from listervs to tell you where to be, when to be there,
+            and what is going down there.
+          </div>
+        </div>
+        <div id="phone_how_to">
+          <img src="{% static 'images/phone.png' %}" style="height: 150px; margin-top: 15px; margin-left: 25px;"/>
+          <div class="how-to-text-alt how-to-text lead">
+            Now you can receive your notifications on your cell phone. That way, you will never miss out on an opportunity to eat free food.
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <a name="footer"></a>
+        <div>
+          <img src="{% static 'images/selfie.jpg' %}" class="img-center img-circle" style="height: 150px" />
+          <div class="how-to-text-alt how-to-text lead" style="width: 375px;">
+           My name is Abhinav Khanna and I am a sophomore at Princeton
+           University this year. I am working towards a BSE in CS.
+           I enjoy playing saxophone every so often.
+          </div>
+        </div>
+     </div>
+    </div>
+
+  </body>
+</html>
