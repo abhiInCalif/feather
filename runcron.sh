@@ -1,2 +1,5 @@
-#!/bin/sh
-/Users/abhinavkhanna/Documents/Zipidat/feather/bin/python /Users/abhinavkhanna/Documents/Zipidat/feather/CODE/manage.py runcrons
+while true
+    do
+        python manage.py runcrons
+        sleep 60
+    done
