@@ -13,6 +13,8 @@ class NotificationUserForm(forms.ModelForm):
     def clean(self):
         # check that the value given in cleaned_data['phone_number'] is
         # a valid phone number
+        if self.cleaned_data.get('phone_number') is None:
+            raise ValidationError('No phone number provided')
         if len(self.cleaned_data.get('phone_number')) != 10:
             raise ValidationError('Please enter a valid phone number.')
 

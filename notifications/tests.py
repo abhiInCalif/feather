@@ -56,3 +56,12 @@ class NotificationUserFormTest(TestCase):
 
         form = NotificationUserForm(data=data)
         self.assertFalse(form.is_valid())
+
+    def test_no_phone_number(self):
+        """
+        Tests if the form can handle no phone number submission
+        """
+        data = {}
+
+        form = NotificationUserForm(data=data)
+        self.assertFalse(form.is_valid())
