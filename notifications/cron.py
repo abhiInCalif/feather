@@ -11,6 +11,7 @@ from twilio.rest import TwilioRestClient
 
 import imaplib
 import email
+import twilio
 
 class NotificationCronJob(CronJobBase):
     RUN_EVERY_MIN = 1 # We want it to run every minute so that its always up to date
@@ -48,12 +49,16 @@ class NotificationCronJob(CronJobBase):
         auth_token = '0b81c57e9ba3d60130829910db94200a' 
         client = TwilioRestClient(account_sid, auth_token)
         user_list = NotificationUser.objects.filter()
+        import pdb; pdb.set_trace()
 
         for u in user_list:
-            print 'pushing sms through twilio'
-            msg = client.sms.messages.create(body=message, to=u.phone_number, from_='+16505219069')
-            # log the message id in the console
-            print msg.sid
+            try:
+                print 'pushing sms through twilio'
+                msg = client.sms.messages.create(body=message, to=u.phone_number, from_='+16505219069')
+                # log the message id in the console
+                print msg.sid
+            except twilio.TwilioRestException as e:
+                print e
 
     def send_google_voice_message(self, message):
         # Sends the google voice message
